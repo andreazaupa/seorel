@@ -3,11 +3,11 @@ module Seorel
   module Model
     module InstanceMethods
       def seorel?
-         Seorel.config.tableless || self.try(:seorel).present?
+         ::Seorel.config.tableless || self.try(:seorel).present?
       end
 
       def seorel_changed_mode?
-        ::Seorel.config.store_seorel_if.eql?(:changed) && !Seorel.config.tableless
+        ::Seorel.config.store_seorel_if.eql?(:changed) && !::Seorel.config.tableless
       end
 
       def should_update_seorel_title?

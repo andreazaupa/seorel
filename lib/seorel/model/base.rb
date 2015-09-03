@@ -23,7 +23,7 @@ module Seorel
           accepts_nested_attributes_for :seorel, allow_destroy: true
 
           delegate :title, :title?, :description, :description?, :image, :image?,
-            to: :seorel, prefix: :seo, allow_nil: true
+            to: :seorel, prefix: :seorel, allow_nil: true
 
           before_save :set_seorel
         else
