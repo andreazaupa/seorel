@@ -28,8 +28,13 @@ module Seorel
           before_save :set_seorel
         else
           %w(seorel_title seorel_description seorel_image).each do |m|            
+            
             define_method(m) do
               self.send(self.class.send("seorel_#{m.to_s.gsub("seorel_", "")}_field"))
+            end
+            
+            define_method(m+"?") do
+              self.send(m).present?
             end
           end
         end
