@@ -5,7 +5,7 @@ module Seorel
       def add_seorel_meta(obj = {})
         if obj.class.name == 'Hash'
           add_seorel_hash obj
-        elsif obj.respond_to? :seorel
+        elsif obj.class.respond_to? :seorel
           add_seorel_model obj
         else
           raise "Seorel `add_seorel_meta` invalid argument"
