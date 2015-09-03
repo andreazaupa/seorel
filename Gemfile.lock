@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    seorel (0.2.2)
+    seorel (0.2.3)
       rails (>= 3.2)
 
 GEM
@@ -126,7 +126,7 @@ GEM
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
     slop (3.6.0)
-    sprockets (3.3.3)
+    sprockets (3.3.4)
       rack (~> 1.0)
     sprockets-rails (2.3.2)
       actionpack (>= 3.0)
@@ -152,6 +152,3 @@ DEPENDENCIES
   seorel!
   sqlite3
   yard
-
-BUNDLED WITH
-   1.10.6

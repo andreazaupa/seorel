@@ -21,7 +21,7 @@ gem 'seorel', '~> 0.2.3'
 `Console`:
 ```bash
 $ bundle install
-$ bundle exec rails generate seorel
+$ bundle exec rails generate seorel seorel
 $ bundle exec rake db:migrate
 ```
 
@@ -41,6 +41,7 @@ Seorel.configure do |config|
   #
   # config.default_image = nil
   #
+  # config.tableless = nil # Do not store seo params in another table
   # config.store_seorel_if = :empty # Available values :empty | :changed
 end
 ```

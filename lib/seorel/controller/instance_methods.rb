@@ -20,9 +20,9 @@ module Seorel
       end
 
       def add_seorel_model(model)
-        seorel_params.title = model.seo_title if model.seo_title?
-        seorel_params.description = model.seo_description if model.seo_description?
-        seorel_params.image = model.seo_image if model.seo_image?
+        seorel_params.title = model.seorel_title if model.seorel_title?
+        seorel_params.description = model.seorel_description if model.seorel_description?
+        seorel_params.image = model.seorel_image if model.seorel_image?
         seorel_params
       end
 

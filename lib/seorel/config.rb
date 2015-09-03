@@ -27,7 +27,8 @@ module Seorel
     config_accessor :default_append_description
     config_accessor :default_image
     config_accessor :store_seorel_if
-
+    config_accessor :tableless
+    
     def param_name
       config.param_name.respond_to?(:call) ? config.param_name.call : config.param_name
     end
@@ -46,6 +47,7 @@ module Seorel
     config.default_description = nil
     config.default_append_description  = nil
     config.default_image = nil
+    config.tableless = nil
     config.store_seorel_if = :empty
   end
 end

@@ -18,13 +18,22 @@ module Seorel
           class_variable_set '@@seorel_image_field',       args[2]
         end
 
-        has_one :seorel, as: :seorelable, dependent: :destroy, class_name: 'Seorel::Seorel'
-        accepts_nested_attributes_for :seorel, allow_destroy: true
+        unless ::Seorel.config.tableless
+          has_one :seorel, as: :seorelable, dependent: :destroy, class_name: 'Seorel::Seorel'
+          accepts_nested_attributes_for :seorel, allow_destroy: true
 
-        delegate :title, :title?, :description, :description?, :image, :image?,
-          to: :seorel, prefix: :seo, allow_nil: true
+          delegate :title, :title?, :description, :description?, :image, :image?,
+            to: :seorel, prefix: :seo, allow_nil: true
 
-        before_save :set_seorel
+          before_save :set_seorel
+        else
+          %w(seorel_title seorel_description seorel_image).each do |m|            
+            define_method(m) do
+              self.send(self.class.send("seorel_#{m.to_s.gsub("seorel_", "")}_field"))
+            end
+          end
+        end
+      
       end
     end
   end
